@@ -1,0 +1,77 @@
+.feed-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background: #000;
+}
+.video-content-head{
+    width: 100%;
+    position: absolute;
+    color: white;
+    top: 0;
+}
+.video-content-header{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.video-content-mid{
+display: flex;
+justify-content: end;
+    position: absolute;
+    color: white;
+    bottom: 0; 
+    right: 0;
+    margin-bottom: 250px;
+}
+.video-content-icons{
+    height: 200px;
+    width: 35px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 15px;
+
+    .icon-container {
+        height: 36px;
+        width: 35px;
+        background-color: linear-gradient(90.82deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 99.85%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+
+        .my-icon {
+            width: 20px !important;
+            height: 19px !important;
+        }
+    }
+
+   
+}
+.video-content-footer{
+    display: flex;
+    // height: 200px;
+    justify-content: end;
+        position: absolute;
+        color: white;
+        bottom: 0; 
+        margin-bottom: 20px;   
+        padding: 20px;
+
+
+}
