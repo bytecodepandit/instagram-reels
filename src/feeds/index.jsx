@@ -1,92 +1,119 @@
-import React from 'react';
-import { useBearStore } from '../hooks/window-scroll';
+import React from "react";
+import { useBearStore } from "../hooks/window-scroll";
 import { useDebouncedEffect } from "../hooks/useDebouncedEffect";
-import './style.scss';
-import {
-    BarChartFill, Wifi, BatteryFull, Bell, DashCircle, Person, Heart
-    , ChatDotsFill,
-    BoxArrowRight
-} from "react-bootstrap-icons";
-import Advert from '../advert-list';
+import { heart, chat, heartSelected, logout, moreCircle, volumeDown } from "../assets/icons";
+import "./style.scss";
 
 const Feeds = (props) => {
-    const ref = React.useRef();
-    const videoRef = React.useRef();
-    const data = useBearStore((state) => state.data)
+  const ref = React.useRef();
+  const videoRef = React.useRef();
+  const data = useBearStore((state) => state.data);
+  const [likeCount, setLikeCount] = React.useState(200);
+  const [isLiked, setIsLiked] = React.useState(false);
 
+  useDebouncedEffect(
+    () => {
+      getOffSetTop();
+    },
+    100,
+    [data]
+  );
 
-    useDebouncedEffect(
-        () => {
-            getOffSetTop();
-        }, 100,
-        [data]
+  const getOffSetTop = () => {
+    var rect = ref.current.getBoundingClientRect();
+    if (isElementInViewport(rect)) {
+      videoRef.current.play();
+      alignScreenInCenter(rect.height);
+    } else {
+      videoRef.current.pause();
+    }
+  };
+
+  function isElementInViewport(el) {
+    return (
+      el.top >= -el.height / 2 &&
+      el.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) +
+          el.height / 2
     );
+  }
 
-    const getOffSetTop = () => {
-        var rect = ref.current.getBoundingClientRect();
-        if (isElementInViewport(rect)) {
-            videoRef.current.play();
-            alignScreenInCenter(rect.height);
-        } else {
-            videoRef.current.pause();
-        }
-    }
+  const alignScreenInCenter = (distance) => {
+    props.onScrollTo(distance);
+  };
 
-    function isElementInViewport(el) {
-        return (
-            el.top >= -el.height / 2 &&
-            el.bottom <= (window.innerHeight || document.documentElement.clientHeight) + el.height / 2
-        );
-    }
+  const onLike = () => {
+    // setIsLiked(!isLiked, (value) => {
+    //   console.log(value);
+    //   if (value) {
+    //     setLikeCount(likeCount + 1);
+    //   } else {
+    //     setLikeCount(likeCount - 1);
+    //   }
+    // });
+    setIsLiked((value) => {
+      console.log(value);
+      if (!value) {
+        setLikeCount(likeCount + 1);
+      } else {
+        setLikeCount(likeCount - 1);
+      }
+      return !value;
+    });
+  };
 
-    const alignScreenInCenter = (distance) => {
-        props.onScrollTo(distance)
-    }
-
-    return <div ref={ref} className='feed-container'>
-        <video ref={videoRef} width="100%" height="100%" muted>
-            <source src={props?.videoUrl} type="video/mp4" />
-        </video>
-
-        <div className='video-content-head'>
-            <div className='video-content-header'>
-                <p>9:41</p>
-                <div className='header-icons'>
-                    <BarChartFill />
-                    <Wifi />
-                    <BatteryFull />
-                </div>
+  return (
+    <div ref={ref} className="feed-container">
+      <video ref={videoRef} width="100%" height="100%" muted>
+        <source src={props?.videoUrl} type="video/mp4" />
+      </video>
+      <div className="row feed-header">
+        <div className="col-9">
+          <div className="name-follow-container">
+            <div>
+              <img src={props.thumbnailUrl} className="image" />
+              <span className="name">{props.title}</span>
             </div>
-            <div className='video-content-header'>
-                <div className='header-middle'>
-                    <span class="badge bg-secondary"><Person /></span>
-                    <p>Cakes & Cheese</p>
-                    <button>Follow</button>
-                </div>
-                <div>
-                    <DashCircle />
-                    <Bell />
-                </div>
-
+            <div>
+              <button type="button" className="col btn-primary btn btn-follow">
+                Follow
+              </button>
             </div>
-            <div className='video-content-header'>
-                Get your fresh birthday cake today
-            </div>
-
+          </div>
+          <p className="description">{props.description}</p>
         </div>
-        <div className='video-content-mid'>
-            <div className='video-content-icons'>
-                <div className='icon-container'><Heart className='my-icon'/></div>
-                <div className='icon-container'><ChatDotsFill className='my-icon'/></div>
-                <div className='icon-container'><BoxArrowRight className='my-icon'/></div>
-
-            </div>
+        <div className="col-3 justify-content-end d-flex">
+          <span className="more-icon">
+            <img src={moreCircle} />
+          </span>
+          <span>
+            <img src={volumeDown} />
+          </span>
         </div>
-        <div className='video-content-footer'>
-            <Advert className="adv" />
+      </div>
+      <div className="reel-action-container">
+        <div className="icon-wrapper">
+          <span className="icon" onClick={() => onLike()}>
+            <img src={isLiked ? heartSelected : heart} />
+          </span>
+          <span>{likeCount}</span>
         </div>
 
+        <div className="icon-wrapper">
+          <span className="icon">
+            <img src={chat} />
+          </span>
+          <span>200</span>
+        </div>
+
+        <div className="icon-wrapper">
+          <span className="icon">
+            <img src={logout} />
+          </span>
+        </div>
+      </div>
     </div>
-}
+  );
+};
 
-export default Feeds
+export default Feeds;

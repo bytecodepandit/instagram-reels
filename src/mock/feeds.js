@@ -1,5 +1,5 @@
-const videoOne = require('../assets/teri-aankhon-mein-whatspp-divya-darshan-neha.mp4');
-const videoTwo = require('../assets/sab-tera-female-version-status-video.mp4');
+const videoOne = require('../assets/videos/teri-aankhon-mein-whatspp-divya-darshan-neha.mp4');
+const videoTwo = require('../assets/videos/sab-tera-female-version-status-video.mp4');
 
 
 export const feeds = [
@@ -12,7 +12,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "Vlc Media Player",
         "videoUrl": videoOne,
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": true
     },
@@ -25,7 +25,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "Blender Inc.",
         "videoUrl": videoTwo,
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": true
     },
@@ -38,7 +38,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "T-Series Regional",
         "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": true
     },
@@ -51,7 +51,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "T-Series Regional",
         "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": false
     },
@@ -64,7 +64,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "Vlc Media Player",
         "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.\n\nLicensed under the Creative Commons Attribution license\nhttp://www.bigbuckbunny.org",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": true
     },
@@ -77,7 +77,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "T-Series Regional",
         "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": false
     },
@@ -90,7 +90,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "T-Series Regional",
         "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-        "description": " Introducing Chromecast. The easiest way to enjoy online video and music on your TV—for when Batman's escapes aren't quite big enough. For $35. Learn how to use Chromecast with Google Play Movies and more at google.com/chromecast.",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": true
     },
@@ -103,7 +103,7 @@ export const feeds = [
         "views": "24,969,123",
         "author": "Blender Inc.",
         "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "description": "Song : Raja Raja Kareja Mein Samaja\nAlbum : Raja Kareja Mein Samaja\nArtist : Radhe Shyam Rasia\nSinger : Radhe Shyam Rasia\nMusic Director : Sohan Lal, Dinesh Kumar\nLyricist : Vinay Bihari, Shailesh Sagar, Parmeshwar Premi\nMusic Label : T-Series",
+        "description": "Big Buck Bunny tells the story ",
         "subscriber": "25254545 Subscribers",
         "isLive": false
     }

@@ -1,77 +1,85 @@
 .feed-container {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    background: #000;
-}
-.video-content-head{
-    width: 100%;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  .feed-header {
     position: absolute;
-    color: white;
-    top: 0;
-}
-.video-content-header{
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.header-icons{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header-middle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.video-content-mid{
-display: flex;
-justify-content: end;
-    position: absolute;
-    color: white;
-    bottom: 0; 
+    top: 30px;
+    padding: 0 16px;
+    left: 0;
     right: 0;
-    margin-bottom: 250px;
-}
-.video-content-icons{
-    height: 200px;
-    width: 35px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-right: 15px;
-
-    .icon-container {
-        height: 36px;
-        width: 35px;
-        background-color: linear-gradient(90.82deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 99.85%);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-
-        .my-icon {
-            width: 20px !important;
-            height: 19px !important;
-        }
+    z-index: 10;
+    .name-follow-container {
+      display: flex;
+      align-items: center;
+      .image {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        border-radius: 100px;
+        overflow: hidden;
+      }
+      .name {
+        font-size: 12px;
+        line-height: 18px;
+        color: #fff;
+        margin-right: 8px;
+      }
+      .btn-follow {
+        padding: 8px 16px;
+        background: #2c3033;
+        border-radius: 32px;
+        outline: 0;
+        border: 0;
+      }
     }
+    .more-icon {
+      margin-right: 24px;
+    }
+    .description {
+      font-size: 12px;
+      line-height: 18px;
+      color: #fff;
+      margin-top: 8px;
+      margin-bottom: 0;
+      text-align: left;
+    }
+  }
 
-   
-}
-.video-content-footer{
+  .reel-action-container {
     display: flex;
-    // height: 200px;
-    justify-content: end;
-        position: absolute;
-        color: white;
-        bottom: 0; 
-        margin-bottom: 20px;   
-        padding: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 100px;
+    right: 16px;
+    height: 160px;
+    z-index: 10;
 
-
+    .icon-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      .icon {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 8px;
+        background: linear-gradient(
+          90.82deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.2) 99.85%
+        );
+        border-radius: 8px;
+      }
+      span {
+        color: #fff;
+        font-size: 10px;
+        line-height: 15px;
+        margin-top: 5px;
+      }
+    }
+  }
 }
