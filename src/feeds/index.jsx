@@ -1,5 +1,6 @@
 import React from "react";
 import { useBearStore } from "../hooks/window-scroll";
+import Advert from "../advert-card";
 import { useDebouncedEffect } from "../hooks/useDebouncedEffect";
 import {
   heart,
@@ -61,7 +62,7 @@ const Feeds = (props) => {
 
   const showCurrentTime = ({ current: videoDom }) => {
     const value = (videoDom.currentTime / videoDom.duration) * 100;
-    const time = (videoDom.currentTime / 60).toFixed(2);;
+    const time = (videoDom.currentTime / 60).toFixed(2);
     setTime(time);
     setDone(value);
   };
@@ -94,7 +95,7 @@ const Feeds = (props) => {
             aria-valuemax="100"
           ></div>
         </div>
-          <span className="remaining-time">{time} min</span>
+        <span className="remaining-time">{time} min</span>
       </div>
 
       <div className="row feed-header">
@@ -142,6 +143,11 @@ const Feeds = (props) => {
             <img src={logout} />
           </span>
         </div>
+      </div>
+      <div className="advertisement-list-container">
+        <Advert />
+        <Advert />
+        <Advert />
       </div>
     </div>
   );
