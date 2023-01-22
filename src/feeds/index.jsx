@@ -1,15 +1,32 @@
 import React from "react";
 import { useBearStore } from "../hooks/window-scroll";
 import { useDebouncedEffect } from "../hooks/useDebouncedEffect";
-import { heart, chat, heartSelected, logout, moreCircle, volumeDown } from "../assets/icons";
+import {
+  heart,
+  chat,
+  heartSelected,
+  logout,
+  moreCircle,
+  volumeDown,
+} from "../assets/icons";
 import "./style.scss";
 
 const Feeds = (props) => {
+  const [done, setDone] = React.useState(0);
+  const [time, setTime] = React.useState(0);
   const ref = React.useRef();
   const videoRef = React.useRef();
   const data = useBearStore((state) => state.data);
   const [likeCount, setLikeCount] = React.useState(200);
   const [isLiked, setIsLiked] = React.useState(false);
+
+  React.useEffect(() => {
+    if (videoRef) {
+      videoRef.current.addEventListener("timeupdate", () => {
+        showCurrentTime(videoRef);
+      });
+    }
+  }, [videoRef]);
 
   useDebouncedEffect(
     () => {
@@ -42,15 +59,14 @@ const Feeds = (props) => {
     props.onScrollTo(distance);
   };
 
+  const showCurrentTime = ({ current: videoDom }) => {
+    const value = (videoDom.currentTime / videoDom.duration) * 100;
+    const time = (videoDom.currentTime / 60).toFixed(2);;
+    setTime(time);
+    setDone(value);
+  };
+
   const onLike = () => {
-    // setIsLiked(!isLiked, (value) => {
-    //   console.log(value);
-    //   if (value) {
-    //     setLikeCount(likeCount + 1);
-    //   } else {
-    //     setLikeCount(likeCount - 1);
-    //   }
-    // });
     setIsLiked((value) => {
       console.log(value);
       if (!value) {
@@ -64,9 +80,23 @@ const Feeds = (props) => {
 
   return (
     <div ref={ref} className="feed-container">
-      <video ref={videoRef} width="100%" height="100%" muted>
+      <video ref={videoRef} width="100%" height="100%" muted loop>
         <source src={props?.videoUrl} type="video/mp4" />
       </video>
+      <div className="progress-bar-container">
+        <div class="progress">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            style={{ width: `${done}%` }}
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+          <span className="remaining-time">{time} min</span>
+      </div>
+
       <div className="row feed-header">
         <div className="col-9">
           <div className="name-follow-container">
@@ -91,6 +121,7 @@ const Feeds = (props) => {
           </span>
         </div>
       </div>
+
       <div className="reel-action-container">
         <div className="icon-wrapper">
           <span className="icon" onClick={() => onLike()}>
